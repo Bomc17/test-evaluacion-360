@@ -1,9 +1,10 @@
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
 import Register from './components/Register';
 import Login from './components/Login';
 import Dashboard2 from './components/Dashboard';
 import PrivateRoute from './components/PrivateRoute';
 import './App.css';
+
 
 function App() {
   return (
@@ -14,24 +15,7 @@ function App() {
           <Route path="/dashboard" element={<PrivateRoute />}>
             <Route path="" element={<Dashboard2 />} />
           </Route>
-{/*           <Route path="/evaluation" element={<PrivateRoute />}>
-            <Route path="" element={<Dashboard />} />
-          </Route>
-          <Route path="/evaluation/edit/id" element={<PrivateRoute />}>
-            <Route path="" element={<Dashboard />} />
-          </Route>
-          <Route path="/evaluation/complete/id" element={<PrivateRoute />}>
-            <Route path="" element={<Dashboard />} />
-          </Route>
-          <Route path="/evaluation/results" element={<PrivateRoute />}>
-            <Route path="" element={<Dashboard />} />
-          </Route>
-          <Route path="/evaluation/results" element={<PrivateRoute />}>
-            <Route path="" element={<Dashboard />} />
-          </Route>
-          <Route path="/profile" element={<PrivateRoute />}>
-            <Route path="" element={<Dashboard />} />
-          </Route> */}
+          <Route path="/" element={<Navigate to="/auth/register" />} />
         </Routes>
       </Router>
   );
